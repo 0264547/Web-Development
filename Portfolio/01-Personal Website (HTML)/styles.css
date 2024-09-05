@@ -1,0 +1,46 @@
+img{
+    width: 150px;
+    border: solid;
+}
+
+.flag{
+    border: none;
+    width: 200px;
+}
+
+.main{
+    display: inline-block
+}
+
+.destimages{
+    display: inline-block
+}
+
+.schoolImg{
+    position: relative;
+    left:50px;
+    top:30px;
+}
+
+.schoolTxt{
+    position: relative;
+    left:50px;
+    top:25px;
+}
+
+input[type="checkbox"]{
+    display:none
+}
+
+.unchecked{
+    width: 20px;
+    height: 20px;
+    background-image: url('Images-Index/free.png');
+    background-size: cover;
+    display: inline-block;
+}
+
+input[type="checkbox"]:checked+.unchecked{
+    background-image: url('Images-Index/busy.png');
+}
+
