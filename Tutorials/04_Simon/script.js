@@ -10,11 +10,11 @@ class Simon{
         this.counter=0;
         this.level=0;
         this.steps=[];
-        this.greenSound=new Audio("/Tutorials/04_Simon/sounds/green.mp3");
-        this.redSound=new Audio("/Tutorials/04_Simon/sounds/red.mp3");
-        this.yellowSound=new Audio("/Tutorials/04_Simon/sounds/yellow.mp3");
-        this.blueSound=new Audio("/Tutorials/04_Simon/sounds/blue.mp3");
-        this.wrongSound=new Audio("/Tutorials/04_Simon/sounds/wrong.mp3");
+        this.greenSound=new Audio("/Web-Development-main/Tutorials/04_Simon/sounds/green.mp3");
+        this.redSound=new Audio("/Web-Development-main/Tutorials/04_Simon/sounds/red.mp3");
+        this.yellowSound=new Audio("/Web-Development-main/Tutorials/04_Simon/sounds/yellow.mp3");
+        this.blueSound=new Audio("/Web-Development-main/Tutorials/04_Simon/sounds/blue.mp3");
+        this.wrongSound=new Audio("/Web-Development-main/Tutorials/04_Simon/sounds/wrong.mp3");
         this.listeners();
     }
 
