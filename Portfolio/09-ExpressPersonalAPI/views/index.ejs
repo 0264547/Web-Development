@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express test</title>
+    <script src="https://kit.fontawesome.com/63b89bbe5a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <% if (locals.error) { %>
+        <h3>
+            <%= error %>
+        </h3>
+        <% } %>
+            <form action="/greet" method="get">
+                Register:
+                <input type="text" name="name" id="name" placeholder="Name">
+                <input type="submit" value="go next">
+                
+                <br>
+
+                <p>Hi <%= greet %>!</p>
+
+                <br>
+
+                <p>Hi everyone: </p>
+                <ul>
+                    <% names.forEach((item,index) => { %>
+                        <li><a href="/wazzup.html?name=<%= encodeURIComponent(item) %>"> <%=item%> </a></li>
+                    <% }); %>
+                </ul>
+
+            </form>
+
+            <h1>TODO List</h1>
+            <form action="/task" method="post">
+                <input type="text" name="item" placeholder="New Task for List"/>
+                <button type="submit" name="submit">Add</button>
+            </form>
+            <form action="/task" method="get">
+                <button type="submit" name="submit">Get Tasks (Use Postman)</button>
+            </form>
+            <% if(locals.tasks.length > 0) { %>
+                <ul>
+                <% tasks.forEach((item,index) => { %>
+                    <li><a href="/remove/<%=index%>"> <i class="fa-solid fa-trash"></i></a><%=item%> <a href="/moveUp/<%=index%>"><i class="fa-solid fa-arrow-up"></i></a> <a href="/moveDown/<%=index%>"><i class="fa-solid fa-arrow-down"></i></a>
+                        <form action="/task/delete/:idx" method="post"><button type="submit" name="submit">Delete Method</button>
+                        </form>
+                    </li>
+                <% }); %>
+                </ul>
+            <% } %>
+</body>
+
+</html>

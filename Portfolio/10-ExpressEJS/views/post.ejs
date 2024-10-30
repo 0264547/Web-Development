@@ -1,0 +1,22 @@
+<%- include ("partials/header"); -%>
+
+<% if (!locals.name){ %>
+    <p>Name lost, return to <a href="/">log in</a></p>
+<% } else { %>
+    <h3><%= post.Title %></h3>
+    <p><%= post.content %></p>
+
+    <h4>Edit / Delete Post</h4>
+    <form action="/edit/<%= index%>" method="post">
+        <input type="text" name="Title" placeholder="Title"/>
+        <textarea name="content" required placeholder="Your Post"><%= post.content %></textarea>
+        <button type="submit" name="submit">Edit Post</button>
+    </form>
+    <form action="/delete/<%= index%>" method="post">
+        <button type="submit" name="submit">Delete Post</button>
+    </form>
+
+    <a href="/home">Go Back To Posts</a>
+  <% } %>
+
+<%- include ("partials/footer") -%>

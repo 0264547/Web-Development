@@ -19,6 +19,10 @@
                 for (var i = number + 1; i < maxNum; i++) {
                     //TODO: check if the current number is a prime or not
                     // If it is, then return it
+                    if(isPrime(i)){
+                        window.alert("The next prime number is: " + i);
+                        return i;
+                    }
                     continue;
                 }
             } else {

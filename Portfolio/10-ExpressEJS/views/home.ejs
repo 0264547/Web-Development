@@ -1,0 +1,39 @@
+<%- include ("partials/header"); -%>
+
+<% if (!locals.name){ %>
+    <p>Name lost, return to <a href="/">log in</a></p>
+<% } else { %>
+        <h3>Hello <%= name %></h3>
+        <p>Welcome to the Star Lion Brewery</p>
+
+        <h2>Posts</h2>
+        
+        <h3>Add New Post</h3>
+        <form action="/add" method="post">
+            <input type="text" name="Title" placeholder="Title"/>
+            <input type="text" name="content" placeholder="Your Post"/>
+            <button type="submit" name="submit">Add Post</button>
+        </form>
+
+        <% if(posts.length===0){ %>
+            <p>No posts available at this time. Come back later.</p>
+        <% } else{%>
+            <ul>
+                <% posts.forEach((item, index) => { %>
+                    <li>
+                        <h3><%= item.Title %></h3>
+                        <% if(item.content.length>100){ %>
+                            <% var limit = item.content.substring(0,100) + '...' %>
+                            <p><%= limit %></p>
+                            <a href="/post/<%= index %>">Read More</a>
+                        <% } else{ %>
+                            <p><%= item.content %></p>
+                            <a href="/post/<%= index %>">Read More</a>
+                          <% } %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+<% } %>
+
+<%- include ("partials/footer") -%>

@@ -1,3 +1,175 @@
-body {
-  margin: 0;
+.imgs{
+  width: 200px;
+  height: auto;
+  border: solid;
+}
+
+.flag{
+  border: none;
+  width: 200px;
+}
+
+.schoolImg{
+  position: relative;
+  max-width: 100px;
+  max-height: 100px;
+  left:50px;
+  top:30px;
+  border-radius: 10px;
+}
+
+.schoolTxt{
+  position: relative;
+  left:50px;
+  top:25px;
+}
+
+input[type="checkbox"]{
+  display:none
+}
+
+.unchecked{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.unchecked span{
+  background-size: cover;
+  background-image: url("../images/free.png");
+}
+
+input[type="checkbox"]:checked+.unchecked{
+  background-image: url("../images/busy.png");
+}
+
+body{
+  background-color:rgb(205, 174, 164);
+  font-family: 'Merriweather',serif;
+  text-align: center;
+}
+
+h1{
+font-family: 'Sacramento',cursive;  
+color:chocolate;
+font-size: 5.5rem;
+margin: 50px;
+}
+
+h2{
+  font-family: 'Montserrat',sans-serif;
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+  color:teal;
+}
+
+h3{
+  font-family: 'Montserrat',sans-serif;
+  color:darkgoldenrod;
+}
+
+hr{
+  border: dotted #EAF6F6 6px;
+  border-bottom: none;
+  width: 4%;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover{
+  color:lightgreen;
+}
+
+.evenSection{
+  background-color:rgba(144, 230, 198, 0.429);
+}
+
+.column {
+  float:left;
+  width:30%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+table{
+  border: dotted;
+  background-color: gray;
+  margin: 0 auto;
+}
+
+input{
+  border-radius: 8px;
+  background-color:rgb(170, 204, 219);
+}
+
+select{
+  border-radius: 8px;
+  background-color: rgb(170, 204, 219);
+}
+
+.mountain{
+  background-image: url("../images/mountain.png");
+  position: static;
+  width: 800px;
+  height: auto;
+  opacity: 50%;
+}
+
+.cloud {
+  background-image: url("../images/cloud.png");
+  position: sticky;
+  width: 700px;
+  height: auto;
+  opacity: 50%;
+  top: 20px;
+  z-index: -1;
+}
+
+.cloud2 {
+  background-image: url("../images/cloud.png");
+  position: sticky;
+  width: 700px;
+  height: auto;
+  opacity: 50%;
+  top:660px;
+  z-index: -1;
 }

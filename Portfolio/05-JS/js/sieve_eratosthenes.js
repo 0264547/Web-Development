@@ -4,18 +4,42 @@
 */
 
 // TODO: Adjust this script so it can work with the sieve.html file.
+document.getElementById("btn").addEventListener("click", function(){
+  var n=parseInt(document.getElementById("num").value);
+  var primes = sieve(n);
+  document.getElementById("primes").textContent = primes.join(", ");
+});
 
 var sieve = function (n) {
   "use strict";
 
   var array = [],
     primes = [],
-    i,
+    i=2,
     j;
 
-  // TODO: Implement the sieve of eratosthenes algorithm to find all the prime numbers under the given number.
+  for(let k =0;k<=n;k++){
+    array.push(true);
+  }
 
+  array[0]=false;
+  array[1]=false;
+
+  while (i*i<=n){
+    if(array[i]){
+      for(j=i*i;j<=n;j+=i){
+        array[j]=false;
+      }
+    }
+    i++;
+  }
+
+  for(let k=2;k<=n;k++){
+    if(array[k]){
+      primes.push(k);
+    }
+  }
+
+  // TODO: Implement the sieve of eratosthenes algorithm to find all the prime numbers under the given number.
   return primes;
 };
-
-console.log(sieve(1000000));

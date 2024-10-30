@@ -2,29 +2,36 @@
 Pig Latin
 */
 
-function igpayAtinlay(str) {
+function igpayAtinlay() {
   // TODO: Initialize the word array properly
-  var returnArray = [],
-    wordArray = [];
+  var returnArray = [];
+  var wordArray = [];
+  sentence=document.getElementById("txtVal").value;
+  wordArray = sentence.split(" ");
   // TODO: make sure that the output is being properly built to produce the desired result.
-  for (var i = 0; i < wordArray.length; i++) {
+  for (let i = 0; i < wordArray.length; i++) {
     var word = wordArray[i];
     var beginning = word.charAt(0);
+    var start='';
 
     if (/[aeiouAEIOU]/.test(beginning)) {
-      returnArray.push(word);
+      returnArray.push(word+"way");
       continue;
     }
 
-    for (var ii = 1; ii < word.length; ii++) {
+    for (let ii = 1; ii < word.length; ii++) {
       if (/[aeiouAEIOU]/.test(word.charAt(ii))) {
+        for(iii=ii;iii<word.length;iii++){
+          start+=word.charAt(iii);
+        }
+        returnArray.push(start+beginning+"ay");
         break;
       } else {
         beginning += word.charAt(ii);
       }
     }
   }
-  return returnArray.join(" ");
+  document.getElementById("pigLatLbl").innerText = returnArray.join(' ');
 }
 
 // Some examples of expected outputs
