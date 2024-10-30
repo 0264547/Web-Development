@@ -16,7 +16,7 @@
             var number = parseInt(document.getElementById("num").value);
             var maxNum = parseInt(1299827);
             if (number < maxNum && !isNaN(number)) {
-                for (var i = number + 1; i < maxNum; i++) {
+                for (var i = number; i < maxNum; i++) {
                     //TODO: check if the current number is a prime or not
                     // If it is, then return it
                     if(isPrime(i)){

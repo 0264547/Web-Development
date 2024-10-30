@@ -16,6 +16,7 @@ const longContent =
 
 let posts = [];
 let name;
+let security;
 
 app.get("/", (req, res) => {
   res.render("index",{posts,name});
@@ -23,23 +24,25 @@ app.get("/", (req, res) => {
 
 app.get('/login',(req,res)=>{
   name = req.query.name;
-  res.render("home",{name,posts})
+  security = "Unsecure"
+  res.render("home",{name,posts,security})
 });
 
 app.post('/login',(req,res)=>{
   name = req.body.name;
-  res.render("home",{name,posts})
+  security = "Secure"
+  res.render("home",{name,posts,security})
 });
 
 app.get('/home',(req,res)=>{
-  res.render("home",{name,posts})
+  res.render("home",{name,posts,security})
 });
 
 app.post('/add',(req,res)=>{
   var Title = req.body.Title;
   var content = req.body.content;
   posts.push({"Title":Title,"content":content});
-  res.render("home",{name,posts,content,Title});
+  res.render("home",{name,posts,content,Title,security});
 });
 
 app.get('/post/:idx',(req,res)=>{

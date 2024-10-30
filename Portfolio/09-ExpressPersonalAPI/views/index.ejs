@@ -47,7 +47,7 @@
                 <ul>
                 <% tasks.forEach((item,index) => { %>
                     <li><a href="/remove/<%=index%>"> <i class="fa-solid fa-trash"></i></a><%=item%> <a href="/moveUp/<%=index%>"><i class="fa-solid fa-arrow-up"></i></a> <a href="/moveDown/<%=index%>"><i class="fa-solid fa-arrow-down"></i></a>
-                        <form action="/task/delete/:idx" method="post"><button type="submit" name="submit">Delete Method</button>
+                        <form action="/task/delete/:idx" method="post"><button type="submit" name="submit">Delete</button>
                         </form>
                     </li>
                 <% }); %>
