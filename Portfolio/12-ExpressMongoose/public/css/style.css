@@ -4,11 +4,28 @@ html {
 }
 
 body {
-    background-color: beige !important;
+    background-color: rgb(34, 34, 34) !important;
+}
+
+label,h2,h1 {
+    color: red;
+}
+
+h3,p{
+    color: white;
 }
 
 img {
     width: 80px;
+}
+
+.driverCard {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #00000054;
 }
 
 #num,
@@ -18,7 +35,11 @@ img {
 
 form input,
 select {
-    border-style: none;
+    border-radius: 5px;
+}
+
+input,select{
+    background-color: rgba(255, 255, 255, 0.63);
 }
 
 input[type=text]:focus {
