@@ -1,4 +1,5 @@
 import React ,{useState} from 'react';
+import Replies from './Replies';
 
 function Description(props){
 
@@ -11,7 +12,7 @@ function Description(props){
     });
 
     function submit(e){
-      if(entry.name !== "" && entry.comment !== ""){
+      if(entry.name && entry.comment){
         props.replyInfo(entry);
         setEntry({
         name:"",
@@ -42,7 +43,13 @@ function Description(props){
             <input type="text" placeholder="Comment" name="comment" onChange={update} value={entry.comment}></input>
             <button type="submit">Add Reply</button>
           </form>
-        </div>
+
+          <div className='replies-section'>
+            {props.replies.map((rep, index) => (
+              <Replies key={index} rep={rep} />
+            ))}
+          </div>
+          </div>
     );
 }
 

@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import Card from './components/Card';
 import Description from './components/Description';
-import Replies from './components/Replies';
 import sw from './data/data';
 import './App.css';
 
@@ -9,38 +8,38 @@ function App() {
 
   const [character,setCharacter] = useState(null); 
   const [reply,setReply] = useState([]); 
+  const [ratio,setRatio] = useState([]); 
 
   function charInformation(character){
     setCharacter(character);
   }
 
-  function replyInformation(newReply){
-    setReply(prevReply => [...prevReply, newReply]);    
+  function replyInformation(character,newReply){
+    setReply(prevReplies => ({
+      ...prevReplies,
+      [character.name]: [...(prevReplies[character.name] || []), newReply]
+    }));
+  }    
+
+  function ratioInformation(movie,updRatio){
+    setRatio(prevRatios => ({
+      ...prevRatios,
+      [movie.title]: [...(prevRatios[movie.title] || []), updRatio]
+    }));
   }
 
   function conditionalLoad(){
     if(character){
+      const movieReplies = reply[character.name] || [];
       return(
         <Description 
           character={character}
-          replyInfo={replyInformation}
+          replyInfo={newReply => replyInformation(character, newReply)}
+          replies={movieReplies}
         />
       ); 
     }
   }
-
-  var replies = reply.map(
-    (rep) => {
-      return(
-        <div className='replySection'> 
-          <h3>{rep.name} says: </h3>
-          <Replies
-          rep = {rep}
-        />
-        </div>
-      );
-    }
-  );
 
   var cards = sw.map(
     (movie) => {
@@ -51,6 +50,7 @@ function App() {
           poster={movie.poster}
           year={movie.year}
           charInfo={charInformation}
+          ratio={updRatio => ratioInformation(movie, updRatio)}
         />
       );
     }
@@ -62,7 +62,6 @@ function App() {
         {cards}
       </div>
       {conditionalLoad()}
-      {replies}
     </div>
   );
 }
